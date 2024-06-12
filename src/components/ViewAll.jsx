@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Navbar from './Navbar'
 
 const ViewAll = () => {
     const [data, setData] = useState([])
     const fetchData = () => {
-        axios.get("http://localhost:8080/view").then(
+        axios.get("http://localhost:8081/view").then(
             (response) => {
                 console.log(response.data)
                 setData(response.data)
@@ -19,6 +20,7 @@ const ViewAll = () => {
     useEffect(() => { fetchData() }, [])
     return (
         <div>
+            <Navbar/>
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
